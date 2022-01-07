@@ -3,16 +3,21 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #18191A;
+    color: #f0f0f0;
+
+    
   }
   
   p {
     font-size: 1.1rem;
+    color: #ffffff;
   }
   
   nav {
     display: flex;
     padding: 2rem 0;
-    background: #111;
+    background: #242526;
   }
   
   nav section {
@@ -30,11 +35,11 @@ body {
   }
   
   nav a:hover {
-    background: #222;
+    background: rgb(153, 153, 153);
   }
   
   a {
-    color: #ea3546;
+    color: #ffffff;
     text-decoration: none;
   }
   
@@ -47,6 +52,7 @@ body {
   
   section h1 {
     font-size: 3rem;
+    color: #f0f0f0;
   }
   
   input, select, textarea {
@@ -73,7 +79,7 @@ body {
   
   .question-excerpt {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgb(255, 255, 255);
   }
   
   .question-excerpt:first-of-type {
@@ -86,7 +92,7 @@ body {
   }
   
   .answer {
-    background: #f0f0f0;
+    background: #3A3B3C;
     border-radius: 4px;
     padding: 1rem 1.5rem;
     margin: 1rem 0;
@@ -94,7 +100,7 @@ body {
   
   .button {
     display: inline-block;
-    background: #ea3546;
+    background: #2CAD21;
     color: white;
     border-radius: 4px;
     font-weight: 700;
@@ -105,3 +111,7 @@ body {
     float: right;
   }
   
+  .delete {
+    float: right;
+    background-color: #d41e1e;
+  }

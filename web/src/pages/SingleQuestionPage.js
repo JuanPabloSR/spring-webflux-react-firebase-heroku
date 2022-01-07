@@ -29,8 +29,8 @@ const SingleQuestionPage = ({
  const {handleSubmit} = useForm();
 
   const renderQuestion = () => {
-    if (loading.question) return <p>Loading question...</p>
-    if (hasErrors.question) return <p>Unable to display question.</p>
+    if (loading.question) return <p>Cargando preguntas...</p>
+    if (hasErrors.question) return <p>No se pueden mostrar las preguntas.</p>
 
     return <Question question={question} />
   }
@@ -60,7 +60,7 @@ const SingleQuestionPage = ({
         
   
       </div>
-    )) : <p>Empty answer!</p>;
+    )) : <p>¡Respuesta vacía!</p>;
   }
 
   return (
@@ -70,7 +70,7 @@ const SingleQuestionPage = ({
         Reply
       </Link>}
 
-      <h2>Answers</h2>
+      <h2>Respuestas</h2>
       {renderAnswers()}
     </section>
   )

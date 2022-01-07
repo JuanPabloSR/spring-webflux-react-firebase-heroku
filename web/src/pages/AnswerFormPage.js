@@ -27,8 +27,8 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
     }, [redirect, history])
 
     const renderQuestion = () => {
-        if (loading.question) return <p>Loading question...</p>
-        if (hasErrors.question) return <p>Unable to display question.</p>
+        if (loading.question) return <p>Cargando Pregunta.</p>
+        if (hasErrors.question) return <p>No se puede mostrar la pregunta.</p>
 
         return <Question question={question} />
     }
@@ -37,7 +37,7 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
     return (
         <section>
             {renderQuestion()}
-            <h1>New Answer</h1>
+            <h1>Nueva Respuesta</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
