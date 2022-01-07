@@ -16,6 +16,8 @@ body {
   
   nav {
     display: flex;
+    justify-content: center;
+    text-align: center;
     padding: 2rem 0;
     background: #242526;
   }
@@ -114,4 +116,37 @@ body {
   .delete {
     float: right;
     background-color: #d41e1e;
+  }
+  .delete1 {
+    float: right;
+    margin-top: 35px;
+  }
+
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color: #242526;
+    color: white;
+    text-align: center;
+  }
+
+  .title-footer{
+    font-size: 15px;
+  }
+
+  .titulo{
+    text-align: center;
+  }
+  .login{
+    background-color: #c7433e;
+    margin-top: 65px;
+
+  }
+
+  .notShowDeleteButton{
+    display: none;
   }

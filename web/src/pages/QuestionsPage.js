@@ -18,7 +18,7 @@ const QuestionsPage = ({ dispatch, loading, questions, hasErrors }) => {
 
     return (
         <section>
-            <h1>Preguntas</h1>
+            <h1 className='titulo'>Preguntas</h1>
             {renderQuestions()}
         </section>
     )

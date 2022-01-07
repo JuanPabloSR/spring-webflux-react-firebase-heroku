@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import swal from 'sweetalert'
 
 import { fetchOwnerQuestions, deleteQuestion } from '../actions/questionActions'
 import { Question } from '../components/Question'
@@ -16,13 +17,28 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
     }, [redirect, dispatch, userId]);
 
     const onDelete = (id) => {
-        dispatch(deleteQuestion(id))
+        swal({
+            title:"Alerta de eliminacion",
+            text:"¿Estas seguro de querer eliminar la pregunta, (no hay vuelta atras!!)?",
+            icon:"warning",
+            buttons:["No", "Si"]
+        }).then(ans =>{
+            if (ans) {
+                dispatch(deleteQuestion(id))
+                swal({text:"¡La pregunta a sido eliminada para siempre!",
+                    icon:"success"
+                })
+            }
+            if (!ans) {
+                swal({text:"¡Evento Cancelado!"})
+            }
+        })
     }
 
 
     const renderQuestions = () => {
-        if (loading) return <p>Cargando preguntas...</p>
-        if (hasErrors) return <p>No se pueden mostrar las preguntas.</p>
+        if (loading) return <p className='titulo'>Cargando preguntas...</p>
+        if (hasErrors) return <p className='titulo'>No se pueden mostrar las preguntas.</p>
 
         return questions.map(question => <Question
             key={question.id}
@@ -32,7 +48,9 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
 
     return (
         <section>
-            <h1>Preguntas</h1>
+            <h1 className='titulo'>Lista de Preguntas</h1>
+            <br/>
+            <br/>
             {renderQuestions()}
         </section>
     )

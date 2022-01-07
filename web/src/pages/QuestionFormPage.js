@@ -21,7 +21,7 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
 
     return (
         <section>
-            <h1>Nueva Pregunta</h1>
+            <h1 className='titulo'>Nueva Pregunta</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
 

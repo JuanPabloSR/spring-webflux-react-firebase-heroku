@@ -37,7 +37,7 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
     return (
         <section>
             {renderQuestion()}
-            <h1>Nueva Respuesta</h1>
+            <h1 className='titulo'>Nueva Respuesta</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>

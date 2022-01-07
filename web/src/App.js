@@ -11,6 +11,7 @@ import "firebase/auth";
 import { login, logout } from './actions/authActions';
 
 import { PublicNavbar, PrivateNavbar } from './components/Navbar'
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage'
 import SingleQuestionPage from './pages/SingleQuestionPage'
 import QuestionsPage from './pages/QuestionsPage'
@@ -65,6 +66,7 @@ const App = ({ dispatch }) => {
           </Switch>
         </>
       }
+      <Footer></Footer>
     </Router>
   )
 }
@@ -82,7 +84,7 @@ function SignOut({ dispatch }) {
   return (
     auth.currentUser && (
       <button
-        className="button right"
+        className="button right login"
         onClick={() => {
           dispatch(logout())
           auth.signOut();
