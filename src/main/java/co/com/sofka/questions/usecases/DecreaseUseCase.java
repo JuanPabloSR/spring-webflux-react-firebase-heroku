@@ -1,20 +1,22 @@
 package co.com.sofka.questions.usecases;
 
+import co.com.sofka.questions.model.AnswerDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
-
 @Service
 @Validated
 public class DecreaseUseCase {
     private final GetAnswerUseCase getAnswerUseCase;
     private final UpdateAnswerUseCase updateAnswerUseCase;
     private final MapperUtils mapperUtils;
+    private final CalculateAnswerPositionsUseCase calculateAnswerPositionsUseCase   ;
 
-    public DecreaseUseCase(GetAnswerUseCase getAnswerUseCase, UpdateAnswerUseCase updateAnswerUseCase,
-                           MapperUtils mapperUtils) {
+    public DecreaseUseCase(GetAnswerUseCase getAnswerUseCase, UpdateAnswerUseCase updateAnswerUseCase
+            , CalculateAnswerPositionsUseCase calculateAnswerPositionsUseCase, MapperUtils mapperUtils) {
         this.getAnswerUseCase = getAnswerUseCase;
         this.updateAnswerUseCase = updateAnswerUseCase;
+        this.calculateAnswerPositionsUseCase = calculateAnswerPositionsUseCase;
         this.mapperUtils = mapperUtils;
     }
 
@@ -28,6 +30,8 @@ public class DecreaseUseCase {
                     return answer;
                 })
                 .map(mapperUtils.mapEntityToAnswer())
-                .flatMap(updateAnswerUseCase::apply).then();
+                .flatMap(updateAnswerUseCase)
+                .map(AnswerDTO::getQuestionId)
+                .flatMap(calculateAnswerPositionsUseCase);
     }
 }

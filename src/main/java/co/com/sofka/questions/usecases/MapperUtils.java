@@ -58,6 +58,7 @@ public class MapperUtils {
             answerdto.setId(entity.getId());
             answerdto.setIncrease(entity.getIncrease());
             answerdto.setDecrease(entity.getDecrease());
+            answerdto.setPosition(entity.getPosition());
             return answerdto;
         };
     }
