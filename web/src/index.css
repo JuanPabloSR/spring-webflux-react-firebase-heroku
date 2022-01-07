@@ -150,3 +150,8 @@ body {
   .notShowDeleteButton{
     display: none;
   }
+
+
+  .public-DraftStyleDefault-ltr{
+    background-color: #3A3B3C;
+  }

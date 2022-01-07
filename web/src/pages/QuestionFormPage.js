@@ -1,15 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { postQuestion } from '../actions/questionActions'
 import { connect } from 'react-redux'
 
+
+import { EditorState, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
+
 const FormPage = ({ dispatch, loading, redirect, userId }) => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
 
+
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [textHtml, setTextHtml] = useState('');
+
+    const onEditorStateChange = (editorState) => {
+        setEditorState(editorState)
+        setTextHtml(draftToHtml(convertToRaw(editorState.getCurrentContent())))
+    };
+
+
     const onSubmit = data => {
         data.userId = userId;
+        data.question = textHtml;
         dispatch(postQuestion(data));
     };
 
@@ -18,6 +36,9 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
             history.push(redirect);
         }
     }, [redirect, history])
+
+
+    const editorStateC = editorState;
 
     return (
         <section>
@@ -47,11 +68,17 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
                 </div>
 
                 <div>
-                    <label for="question">Pregunta</label>
-                    <textarea id="question" {...register("question", { required: true, maxLength: 300 })} />
+                    <label for="question">Pregunta</label>       
+                     <Editor
+                        editorState={editorStateC}
+                        wrapperClassName="demo-wrapper"
+                        editorClassName="demo-editor"
+                        onEditorStateChange={onEditorStateChange}
+                    />
+                    <div dangerouslySetInnerHTML={{ __html: textHtml }} />
                 </div>
                 <button type="submit" className="button" disabled={loading} >{
-                    loading ? "Saving ...." : "Save"
+                    loading ? "Guardando ...." : "Guardar"
                 }</button>
             </form>
         </section>
