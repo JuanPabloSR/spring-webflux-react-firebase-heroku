@@ -116,4 +116,47 @@ export function postAnswer(answer) {
         }
     }
 }
+export function decrease(answerId, userId, questionId) {
+    return async dispatch => {
+        dispatch(loading())
+        try {
+            await fetch(`${URL_BASE}/decrease/${answerId}`,
+                {
+                    method: 'PUT',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({"userId":userId})
+                }
+            )
+            dispatch(success({redirect: null}));
+            dispatch(fetchQuestion(questionId));
+        } catch (error) {
+            dispatch(failure())
+        }
+    }
+}
 
+export function increase(answerId, userId, questionId) {
+    return async dispatch => {
+        dispatch(loading())
+        try {
+            await fetch(`${URL_BASE}/increase/${answerId}`,
+                {
+                    method: 'PUT',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({"userId":userId})
+                }
+            )
+
+            dispatch(success({redirect: null}));
+            dispatch(fetchQuestion(questionId));
+        } catch (error) {
+            dispatch(failure())
+        }
+    }
+}

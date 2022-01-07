@@ -61,7 +61,6 @@ public class AnswerDTO {
     public void setQuestionId(String questionId) {
         this.questionId = questionId;
     }
-
     public String getAnswer() {
         return answer;
     }
