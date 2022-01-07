@@ -11,6 +11,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
 import java.util.function.Function;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
@@ -78,6 +79,33 @@ public class QuestionRouter {
                         )
         );
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> decreace(DecreaseUseCase decreaseUseCase) {
+        return route(PUT("/decrease/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(Map.class)
+                        .flatMap(json -> decreaseUseCase.apply(request.pathVariable("id"),
+                                        json.get("userId").toString())
+                                .flatMap(result -> ServerResponse.ok()
+                                        .contentType(MediaType.APPLICATION_JSON)
+                                        .bodyValue(result))
+                        )
+        );
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> increase(IncreaseUseCase increaseUseCase) {
+        return route(PUT("/increase/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(Map.class)
+                        .flatMap(json -> increaseUseCase.apply(request.pathVariable("id"),
+                                        json.get("userId").toString())
+                                .flatMap(result -> ServerResponse.ok()
+                                        .contentType(MediaType.APPLICATION_JSON)
+                                        .bodyValue(result))
+                        )
+        );
+    }
+
 
     @Bean
     public RouterFunction<ServerResponse> delete(DeleteUseCase deleteUseCase) {

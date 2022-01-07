@@ -63,38 +63,38 @@ public class Answer {
         this.answer = answer;
     }
 
-    public List<String> getUpVotes() {
-        return increase;
-    }
-    public void setUpVotes(List<String> upVotes) {
-        this.increase = upVotes;
-    }
-
-    public void addUpVote(String useId)
-    {
-        this.increase.add(useId);
-    }
-
-    public void removeUpVote(String userId)
-    {
-        this.increase.remove(userId);
-    }
-
-    public List<String> getDownVotes() {
+    public List<String> getDecrease() {
         return decrease;
     }
-
-    public void setDownVotes(List<String> downVotes) {
-        this.decrease = downVotes;
+    public void setDecrease(List<String> decrease) {
+        this.decrease = decrease;
     }
 
-    public void addDownVote(String useId)
+    public void addDecrease(String useId)
     {
         this.decrease.add(useId);
     }
 
-    public void removeDownVote(String userId)
+    public void removeDecrease(String userId)
     {
         this.decrease.remove(userId);
+    }
+
+    public List<String> getIncrease() {
+        return increase;
+    }
+
+    public void setIncrease(List<String> increase) {
+        this.increase = increase;
+    }
+
+    public void addIncrease(String useId)
+    {
+        this.increase.add(useId);
+    }
+
+    public void removeIncrease(String userId)
+    {
+        this.increase.remove(userId);
     }
 }
