@@ -71,6 +71,7 @@ const SingleQuestionPage = ({
     return (question.answers && question.answers.length) ? question.answers.map(answer => (
       <div key={answer.id}>
         <Answer key={answer.id} answer={answer} userId={userId} onDelete={onDelete} />
+        
        {userId?(<div>
 
        <button  className="btn btn-success" disabled={answer.decrease

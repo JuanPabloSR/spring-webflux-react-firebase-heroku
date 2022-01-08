@@ -4,10 +4,10 @@ import {
   Switch,
   Route,
   Redirect,
+  Link
 } from 'react-router-dom'
-import firebase from "firebase/app";
 import "firebase/firestore";
-import "firebase/auth";
+import "firebase/auth";  
 import { login, logout } from './actions/authActions';
 
 import { PublicNavbar, PrivateNavbar } from './components/Navbar'
@@ -20,16 +20,13 @@ import AnswerFormPage from './pages/AnswerFormPage'
 import OwnerQuestionsPage from './pages/OwnerQuestionsPage'
 import { useAuthState } from "react-firebase-hooks/auth";
 
-firebase.initializeApp({
-  apiKey: "AIzaSyCTySyvuIDPg7RWF6ceuuwC2t3BEiAK38o",
-  authDomain: "question-app-demo.firebaseapp.com",
-  projectId: "question-app-demo",
-  storageBucket: "question-app-demo.appspot.com",
-  messagingSenderId: "1038673531562",
-  appId: "1:1038673531562:web:da90421f639a3115dcf6d3"
-});
+import {  GoogleProvider } from './services/firebase';
 
-const auth = firebase.auth();
+
+import { auth } from './services/firebase';
+import SignUp from './pages/SignUp';  
+import Login from './pages/Login';
+
 
 const App = ({ dispatch }) => {
   const [user] = useAuthState(auth);
@@ -62,6 +59,8 @@ const App = ({ dispatch }) => {
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
             <Redirect to="/" />
           </Switch>
         </>
@@ -74,10 +73,14 @@ const App = ({ dispatch }) => {
 
 function SignIn() {
   const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const provider = GoogleProvider();
     auth.signInWithPopup(provider);
   };
-  return <button className="button right" onClick={signInWithGoogle}>Ingresar con Google</button>;
+  return <div className="">
+    <button className="button right" onClick={signInWithGoogle}>Sign in with google</button>
+    <Link to="/login" className="button right mx-2" >Sign in</Link>
+ 
+  </div>;
 }
 
 function SignOut({ dispatch }) {
@@ -96,5 +99,5 @@ function SignOut({ dispatch }) {
   );
 }
 
-
+  
 export default App

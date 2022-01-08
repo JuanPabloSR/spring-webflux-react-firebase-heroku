@@ -7,6 +7,8 @@ export const PublicNavbar = () => (
     <section>
       <Link to="/">Inicio</Link>
       <Link to="/questions">Preguntas</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/signup">SignUp</Link>
     </section>
   </nav>
 );
@@ -19,6 +21,7 @@ export const PrivateNavbar = () => (
       <Link to="/questions">Preguntas</Link>
       <Link to="/new">Nueva</Link>
       <Link to="/list">Lista</Link>
+      <Link to="/profile">Perfil</Link>
     </section>
   </nav>
 );
