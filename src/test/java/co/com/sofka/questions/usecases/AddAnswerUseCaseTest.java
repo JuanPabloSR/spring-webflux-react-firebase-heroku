@@ -29,7 +29,6 @@ class AddAnswerUseCaseTest {
     GetUseCase getUseCase;
     QuestionRepository questionRepository;
 
-
     @BeforeEach
     public void setup() {
         mapperUtils = new MapperUtils();

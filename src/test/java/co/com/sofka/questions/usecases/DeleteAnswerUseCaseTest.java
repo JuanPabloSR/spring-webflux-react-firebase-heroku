@@ -33,9 +33,8 @@ class DeleteAnswerUseCaseTest {
     private AnswerRepository answerRepository;
 
     @Test
-    @DisplayName("test para eliminar una respuesta xd")
+    @DisplayName("test para eliminar una respuesta")
     void deleteAnswerSucessTest(){
-
         Mockito.when( answerRepository.deleteById("Q-111")).thenReturn(Mono.empty());
 
         var result = deleteAnswerUseCase.apply("Q-111").block();
