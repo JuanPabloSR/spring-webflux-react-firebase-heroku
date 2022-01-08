@@ -107,7 +107,7 @@ const mapStateToProps = state => ({
   loading: state.question.loading,
   hasErrors: state.question.hasErrors,
   redirect: state.question.redirect,
-  userId: state.auth.uid
+  userId: state.auth.uid,
 })
 
 export default connect(mapStateToProps)(SingleQuestionPage)
