@@ -21,8 +21,6 @@ public class ListUseCase implements Supplier<Flux<QuestionDTO>> {
 
     @Override
     public Flux<QuestionDTO> get() {
-        System.out.println(questionRepository.findAll()
-                .map(mapperUtils.mapEntityToQuestion()));
         return questionRepository.findAll()
                 .map(mapperUtils.mapEntityToQuestion());
     }

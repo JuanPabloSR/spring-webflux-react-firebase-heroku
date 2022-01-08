@@ -30,14 +30,14 @@ class ListUseCaseTest {
         question.setUserId("xxxx-xxxx");
         question.setType("tech");
         question.setCategory("software");
-        question.setQuestion("¿Que es java?");
+        question.setQuestion("¿Que es un ide?");
         when(repository.findAll()).thenReturn(Flux.just(question ));
 
         StepVerifier.create(listUseCase.get())
                 .expectNextMatches(questionDTO -> {
                     assert questionDTO.getUserId().equals("xxxx-xxxx");
                     assert questionDTO.getCategory().equals("software");
-                    assert questionDTO.getQuestion().equals("¿Que es java?");
+                    assert questionDTO.getQuestion().equals("¿Que es un ide?");
                     assert questionDTO.getType().equals("tech");
                     return true;
                 })

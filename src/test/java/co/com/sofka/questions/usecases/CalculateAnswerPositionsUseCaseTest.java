@@ -15,12 +15,12 @@ import reactor.test.StepVerifier;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 @RunWith(MockitoJUnitRunner.class)
 
-class AddAnswerUseCaseTest {
+class CalculateAnswerPositionsUseCaseTest {
     AnswerRepository answerRepository;
     MapperUtils mapperUtils;
     GetAnswerUseCase getAnswerUseCase;
@@ -34,7 +34,6 @@ class AddAnswerUseCaseTest {
         mapperUtils = new MapperUtils();
         answerRepository = mock(AnswerRepository.class);
         questionRepository = mock(QuestionRepository.class);
-
         getAnswerUseCase = new GetAnswerUseCase(mapperUtils, answerRepository);
         updateAnswerUseCase = new UpdateAnswerUseCase(mapperUtils, answerRepository, getAnswerUseCase);
         getUseCase = new GetUseCase(mapperUtils,questionRepository, answerRepository);
@@ -42,28 +41,23 @@ class AddAnswerUseCaseTest {
     }
 
     @Test
-    public void addAnswerUseCase()
+    public void calculatePositionAnswer()
     {
         var answer = getAnswerData();
         var question = getQuestionData();
+        when(answerRepository.findById("xxxx")).thenReturn(Mono.just(answer).map(mapperUtils.mapperToAnswer()));
         when(answerRepository.save(Mockito.any())).thenReturn(Mono.just(answer).map(mapperUtils.mapperToAnswer()));
         when(questionRepository.findById("qqqq")).thenReturn(Mono.just(question).map(mapperUtils.mapperToQuestion(question.getId())));
         when(answerRepository.findAllByQuestionId("qqqq")).thenReturn(Flux.just(answer).map(mapperUtils.mapperToAnswer()));
 
-        var addAnswer = new AddAnswerUseCase(mapperUtils, getUseCase,answerRepository);
-
-        StepVerifier.create(addAnswer.apply(answer))
-                .expectNextMatches(questionDTO ->
-                {
-                    return questionDTO.getAnswers().contains(answer);
-                }).verifyComplete();
+        StepVerifier.create(calculateAnswerPositionsUseCase.apply("qqqq"))
+                .verifyComplete();
     }
 
     AnswerDTO getAnswerData()
     {
         var answer = new AnswerDTO("qqqq", "uuuu", "answer1");
         answer.setId("xxxx");
-        answer.setQuestionId("qqqq");
         answer.setDecrease(new ArrayList<>());
         answer.setIncrease(new ArrayList<>());
         return answer;
