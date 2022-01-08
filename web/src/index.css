@@ -53,7 +53,9 @@ body {
   }
   
   section h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
     color: #f0f0f0;
   }
   
@@ -140,6 +142,7 @@ body {
 
   .titulo{
     text-align: center;
+
   }
   .login{
     background-color: #c7433e;
@@ -154,4 +157,11 @@ body {
 
   .public-DraftStyleDefault-ltr{
     background-color: #3A3B3C;
+  }
+
+  .logo{
+    width: 60px;
+    margin-right: -100px;
+    margin-left: 100px;
+   
   }
