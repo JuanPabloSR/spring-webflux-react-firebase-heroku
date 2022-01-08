@@ -12,8 +12,8 @@ export const PublicNavbar = () => (
 );
 
 export const PrivateNavbar = () => (
-  <nav>
-    <img className="logo" src={logo} alt="logo" />{" "}
+  <nav className="barra">
+    <img  className="logo" src={logo} alt="logo" />{" "}
     <section>
       <Link to="/">Inicio</Link>
       <Link to="/questions">Preguntas</Link>

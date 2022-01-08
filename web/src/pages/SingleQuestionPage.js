@@ -52,7 +52,7 @@ const SingleQuestionPage = ({
     }).then(ans =>{
         if (ans) {
             dispatch(deleteAnswer(answer))
-            swal({text:"¡La respuesta se ha elimiado ;)!",
+            swal({text:"¡La respuesta se ha eliminado ;)!",
                 icon:"success"
             })
         }
@@ -93,7 +93,7 @@ const SingleQuestionPage = ({
     <section>
       {renderQuestion()}
       {userId && <Link to={"/answer/" + id} className="button right">
-        Reply
+        Contestar
       </Link>}
 
       <h2 className='titulo'>Respuestas</h2>

@@ -41,8 +41,9 @@ body {
   }
   
   a {
-    color: #ffffff;
+    color: #375181;
     text-decoration: none;
+    font-weight: 900;
   }
   
   section {
@@ -79,6 +80,7 @@ body {
 
   .question h2 {
     font-size: 2.5rem;
+    color: #2CAD21;
   }
   
   .question-excerpt {
@@ -88,11 +90,13 @@ body {
   
   .question-excerpt:first-of-type {
     padding-top: 0;
+
   }
   
   .question-excerpt h2 {
     margin-top: 0;
     font-size: 1.5rem;
+
   }
   
   .answer {
@@ -100,10 +104,14 @@ body {
     border-radius: 4px;
     padding: 1rem 1.5rem;
     margin: 1rem 0;
+
   }
   
   .button {
-    display: inline-block;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
     background: #2CAD21;
     color: white;
     border-radius: 4px;
@@ -164,4 +172,27 @@ body {
     margin-right: -100px;
     margin-left: 100px;
    
+  }
+
+  .categoria{
+    color: #375181;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .main-footer {
+    color: white;
+    background-color: #18191A;
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .barra{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #375181;
   }

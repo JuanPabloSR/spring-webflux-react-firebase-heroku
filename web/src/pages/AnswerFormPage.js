@@ -41,11 +41,11 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label for="answer">Answer</label>
+                    <label for="answer">Respuesta</label>
                     <textarea id="answer" {...register("answer", { required: true, maxLength: 300 })} />
                 </div>
                 <button type="submit" className="button" disabled={loading} >{
-                    loading ? "Saving ...." : "Save"
+                    loading ? "Guardando ...." : "Guardar"
                 }</button>
             </form>
         </section>
