@@ -31,3 +31,20 @@ build/
 
 ### VS Code ###
 .vscode/
+web/src/actions/userActions.js
+web/src/App.js
+web/src/components/Navbar.js
+web/src/pages/Login.js
+web/src/pages/Register.js
+web/src/pages/SignUp.js
+web/src/reducers/authReducer.js
+web/src/reducers/index.js
+web/src/reducers/userReducer.js
+web/src/services/firebase.js
+web/src/components/Navbar.js
+web/src/App.js
+web/src/pages/Login.js
+web/src/pages/SignUp.js
+web/src/reducers/authReducer.js
+web/src/reducers/index.js
+web/src/services/firebase.js

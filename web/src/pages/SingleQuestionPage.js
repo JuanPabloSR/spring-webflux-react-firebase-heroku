@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import swal from 'sweetalert'
 
-import { fetchQuestion, deleteAnswer , increase, decrease} from '../actions/questionActions'
-
-
-
+import { fetchQuestion , increase, decrease} from '../actions/questionActions'
 
 import { Question } from '../components/Question'
 import { Answer } from '../components/Answer'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+
+import swal from 'sweetalert'
+import { deleteAnswer } from '../actions/answerActions'
+
+
 
 
 const SingleQuestionPage = ({
@@ -21,6 +22,7 @@ const SingleQuestionPage = ({
   loading,
   redirect,
   userId,
+  
 }) => {
 
   const { id } = match.params
@@ -33,6 +35,8 @@ const SingleQuestionPage = ({
         dispatch(fetchQuestion(id))
     }
 }, [redirect, dispatch, id]);
+
+
 
  const {handleSubmit} = useForm();
 
@@ -109,6 +113,7 @@ const mapStateToProps = state => ({
   hasErrors: state.question.hasErrors,
   redirect: state.question.redirect,
   userId: state.auth.uid,
+  
 })
 
 export default connect(mapStateToProps)(SingleQuestionPage)

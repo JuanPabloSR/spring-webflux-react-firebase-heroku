@@ -107,6 +107,7 @@ body {
 
   }
   
+  
   .button {
     display:flex;
     justify-content: center;
@@ -155,9 +156,16 @@ body {
   .login{
     background-color: #c7433e;
     margin-top: 65px;
-
+    cursor: pointer;
   }
 
+  .logins{
+    margin-top: 65px;
+    margin: 10px;
+    margin-top: 92px;
+    cursor: pointer;
+
+  }
   .notShowDeleteButton{
     display: none;
   }

@@ -77,8 +77,8 @@ function SignIn() {
     auth.signInWithPopup(provider);
   };
   return <div className="">
-    <button className="button right" onClick={signInWithGoogle}>Sign in with google</button>
-    <Link to="/login" className="button right mx-2" >Sign in</Link>
+    <button className="button right logins" onClick={signInWithGoogle}>Ingresar Google</button>
+    <Link to="/login" className="button right logins" >Registrarte</Link>
  
   </div>;
 }

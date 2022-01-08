@@ -37,21 +37,21 @@ export default class SignUp extends Component {
             <div>
               <form onSubmit={this.handleSubmit}>
                 <h1>
-                  Sign Up
+                  Suscribirse
                 </h1>
-                <p>Fill in the form below to create an account.</p>
+                <p>Rellene el siguiente formulario para crear una cuenta.</p>
                 <div>
                   <input placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email}></input>
                 </div>
                 <div>
-                  <input placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password"></input>
+                  <input placeholder="Contraseña" name="password" onChange={this.handleChange} value={this.state.password} type="password"></input>
                 </div>
                 <div>
                   {this.state.error ? <p>{this.state.error}</p> : null}
-                  <button type="submit">Sign up</button>
+                  <button type="submit">Registrate</button>
                 </div>
                 <hr></hr>
-                <p>Already have an account? <Link to="/login">Login</Link></p>
+                <p>Ya tienes una cuenta? <Link to="/login">Ingresar</Link></p>
               </form>
             </div>
           </section>
