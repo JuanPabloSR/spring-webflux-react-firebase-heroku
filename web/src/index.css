@@ -196,3 +196,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     color: #375181;
   }
+
+  .jodit-container:not(.jodit_inline) .jodit-wysiwyg {
+    background-color: #3A3B3C;
+  }
