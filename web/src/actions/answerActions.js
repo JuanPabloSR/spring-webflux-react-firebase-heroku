@@ -1,7 +1,7 @@
 
 import { loading, success, failure } from "../actions/questionActions";
 
-const URL_BASE = 'http://localhost:4002';
+const URL_BASE = 'https://porfavor.herokuapp.com';
 
 export function deleteAnswer(id) {
     return async dispatch => {

@@ -10,11 +10,12 @@ import rootReducer from './reducers'
 
 import './index.css'
 
+
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
-
+ 
 render(
   <Provider store={store}>
     <App dispatch={store.dispatch}/>

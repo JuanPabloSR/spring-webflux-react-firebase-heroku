@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:4002';
+const URL_BASE = 'https://porfavor.herokuapp.com';
 
 export const LOADING = 'LOADING'
 export const LOADED_SUCCESS = 'LOADED_SUCCESS'

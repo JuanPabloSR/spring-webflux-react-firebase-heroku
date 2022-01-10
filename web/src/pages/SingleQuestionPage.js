@@ -67,6 +67,8 @@ const SingleQuestionPage = ({
 
 }
 
+
+
   const onClickDecrease = (answerId, userId, questionId)=> dispatch(decrease(answerId, userId, questionId));
   const onClickIncrease = (answerId, userId, questionId)=> dispatch(increase(answerId, userId, questionId));
  
